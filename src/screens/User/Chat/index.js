@@ -13,17 +13,7 @@ const index = (props) => {
     const { theme, dispatch } = props;
 
     useEffect(() => {
-        // socketConnect()
     }, [])
-
-    const socketConnect = () => {
-        const socket = io('http://192.168.1.207:8000', {
-            forceNew: true
-        })
-        socket.on('connect', (socket) => {
-            console.log("data");
-        })
-    }
 
     return (
         <Container SafeAreaView>

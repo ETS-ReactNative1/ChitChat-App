@@ -2,7 +2,6 @@ import { SET_USER, CLEAR_USER } from "../types";
 
 const initialState = {
     user: null,
-    selectedTabIndex: 0
 }
 
 export default (state = initialState, action) => {

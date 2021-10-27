@@ -25,7 +25,7 @@ const RootNavigator = () => {
 
     const checkAuth = async () => {
         setTimeout(async () => {
-            dispatch(setLoggedinUser(null))
+            dispatch(setLoggedinUser(""))
             const themeInStorage = await getTheme()
             const setCurrentAppTheme = themeInStorage == THEME.dark ? THEME.dark : THEME.light
             dispatch(setAppTheme(setCurrentAppTheme))
