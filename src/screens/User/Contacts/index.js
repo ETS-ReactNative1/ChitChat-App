@@ -1,14 +1,11 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import Container from '../../../components/Container'
 
 const index = () => {
     return (
-        <View style={{
-            flex: 1,
-            backgroundColor: 'red'
-        }}>
-            <Text>Contacts Scrren</Text>
-        </View>
+        <Container>
+        </Container>
     )
 }
 

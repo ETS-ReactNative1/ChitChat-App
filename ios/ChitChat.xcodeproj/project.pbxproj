@@ -12,8 +12,12 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3FD08DBF663C085531BF20BE /* libPods-ChitChat-ChitChatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 771106BBE1E2F3153F80E232 /* libPods-ChitChat-ChitChatTests.a */; };
+		599F78E2125F4CF5BD7C503E /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F82D7F6362D04821A8FA214B /* SFProText-Medium.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		87788AC32A01405A90F3868E /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6FC3A2DA25240D98213352D /* SFProText-Regular.ttf */; };
+		8E6187F29F5F4E6DA8CF6EF0 /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4A2B2D787FF4DDF8BE141E5 /* SFProText-Semibold.ttf */; };
 		9F93D9417E513262B33D9165 /* libPods-ChitChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B791ACA90A546DDF793388 /* libPods-ChitChat.a */; };
+		B31E3CAF272AD86000961486 /* libswiftWebKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B31E3CAE272AD86000961486 /* libswiftWebKit.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,12 +57,16 @@
 		94CD00C501FD32CC07A7FF3E /* Pods-ChitChat-ChitChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChitChat-ChitChatTests.debug.xcconfig"; path = "Target Support Files/Pods-ChitChat-ChitChatTests/Pods-ChitChat-ChitChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9558CF23BA804C3EAC56FF0B /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		A7F7A3766FDB45A4962B220E /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		B31E3CAE272AD86000961486 /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
 		B405D9710ACB4BC288A90500 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		B4A2B2D787FF4DDF8BE141E5 /* SFProText-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProText-Semibold.ttf"; path = "../src/assets/fonts/SFProText-Semibold.ttf"; sourceTree = "<group>"; };
 		BC173E736CAF4282AEA217E6 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		C6FC3A2DA25240D98213352D /* SFProText-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProText-Regular.ttf"; path = "../src/assets/fonts/SFProText-Regular.ttf"; sourceTree = "<group>"; };
 		D7AAED5D4EB948009F43F353 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		DC0B45A265EA426EB64E3E11 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F1676D7783E34D01BCC71470 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		F82D7F6362D04821A8FA214B /* SFProText-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProText-Medium.ttf"; path = "../src/assets/fonts/SFProText-Medium.ttf"; sourceTree = "<group>"; };
 		F940EF574ACF4ED3A87F8562 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B31E3CAF272AD86000961486 /* libswiftWebKit.tbd in Frameworks */,
 				9F93D9417E513262B33D9165 /* libPods-ChitChat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +127,9 @@
 				8615DBB34C0D430CBE233AA3 /* Octicons.ttf */,
 				78A3D6909FE94C08AAACB7B2 /* SimpleLineIcons.ttf */,
 				897EFB7D7DD444C8B66271A8 /* Zocial.ttf */,
+				F82D7F6362D04821A8FA214B /* SFProText-Medium.ttf */,
+				C6FC3A2DA25240D98213352D /* SFProText-Regular.ttf */,
+				B4A2B2D787FF4DDF8BE141E5 /* SFProText-Semibold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -138,6 +150,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B31E3CAE272AD86000961486 /* libswiftWebKit.tbd */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				69B791ACA90A546DDF793388 /* libPods-ChitChat.a */,
 				771106BBE1E2F3153F80E232 /* libPods-ChitChat-ChitChatTests.a */,
@@ -284,6 +297,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				599F78E2125F4CF5BD7C503E /* SFProText-Medium.ttf in Resources */,
+				87788AC32A01405A90F3868E /* SFProText-Regular.ttf in Resources */,
+				8E6187F29F5F4E6DA8CF6EF0 /* SFProText-Semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +548,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -559,6 +579,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

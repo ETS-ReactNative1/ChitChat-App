@@ -6,6 +6,7 @@ import { Camera, Calls, Contacts, Chat } from './screens';
 import Feather from 'react-native-vector-icons/Feather'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { Platform } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,7 +25,7 @@ export default (props) => {
                     backgroundColor: tabColor,
                     borderTopLeftRadius: 15,
                     borderTopRightRadius: 15,
-                    height: 55
+                    height: Platform.OS === 'android' ? 55 : 75,
                 },
                 tabBarHideOnKeyboard: true
             }}

@@ -22,7 +22,7 @@ const index = (props) => {
                 data={userdata}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => (
-                    <ChatItem data={item} theme={theme} />
+                    <ChatItem data={item} theme={theme} navigation={props?.navigation} />
                 )}
             />
         </Container>

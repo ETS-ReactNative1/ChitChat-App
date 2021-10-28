@@ -1,11 +1,13 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import HOC from '../HOC'
 import Feather from 'react-native-vector-icons/Feather'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { MSG } from '../../constants/text'
 import { useRoute, useNavigation } from '@react-navigation/native'
 import { routeNames, ROUTE_NAME } from '../../constants/route'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import Images from '../../assets/images'
 
 const index = (props) => {
     const { theme, route } = props
@@ -21,11 +23,19 @@ const index = (props) => {
                 onPress={() => navigation.goBack()}
             />
             : routeName === ROUTE_NAME.CHAT
-                ? <Feather
-                    name="edit"
+                ? <TouchableOpacity
+                    style={{ backgroundColor: theme.colorSecondary, fontSize: 25 }}
                     onPress={() => navigation.navigate('Profile')}
-                    style={{ color: theme.textSubColor, fontSize: 25 }}
-                />
+                >
+                    <Image
+                        source={Images.profile_image}
+                        style={{
+                            height: 35,
+                            width: 35,
+                            borderRadius: 35
+                        }}
+                    />
+                </TouchableOpacity>
                 : null
     }
 

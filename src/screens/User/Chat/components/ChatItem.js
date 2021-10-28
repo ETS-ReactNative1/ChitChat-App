@@ -1,15 +1,15 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import Entypo from 'react-native-vector-icons/Entypo'
-import { useNavigation } from '@react-navigation/native'
 
 import { USER_STATUS } from '../../../../constants/types'
 
-const ChatItem = ({ data, theme }) => {
-    const navigation = useNavigation()
+const ChatItem = ({ data, theme, navigation }) => {
+
     const onPress = () => {
         navigation.navigate('ChatRoom', data)
     }
+
     return (
         <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 10, marginVertical: 5, }} onPress={onPress}>
             <View style={{ marginHorizontal: 10 }}>
