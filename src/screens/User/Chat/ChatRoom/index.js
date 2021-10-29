@@ -1,28 +1,40 @@
 import React from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, useWindowDimensions } from 'react-native'
 import Container from '../../../../components/Container'
 import AppHeader from '../../../../components/AppHeader'
+import { useTheme } from '@react-navigation/native'
 
 const index = () => {
+
+    const { colors } = useTheme()
+    const { height } = useWindowDimensions()
+
+    const SayHello = () => {
+        return <TouchableOpacity
+            activeOpacity={1}
+            style={{
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginTop: (height / 2) - 100
+            }}
+        >
+            <Text style={{
+                color: colors?.colorTernary,
+                fontSize: 16
+            }}
+            >Say "Hello! 👋"</Text>
+        </TouchableOpacity>
+    }
     return (
         <Container SafeAreaView>
             <AppHeader />
             <FlatList
-                data={[{ type: 'user' }, { type: 'sender' }]}
+                data={[]}
                 renderItem={({ item }) => {
-                    return item?.type === 'user'
-                        ? <Text style={{
-                            color: 'red', borderWidth: 1,
-                            borderColor: 'white',
-                            alignSelf: 'flex-start',
-                            maxWidth: '75%'
-                        }}>LeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeftLeft</Text>
-                        : <Text style={{
-                            color: 'green', borderWidth: 1,
-                            borderColor: 'white',
-                            alignSelf: 'flex-end'
-                        }}>Right</Text>
+                    return null
                 }}
+                ListEmptyComponent={<SayHello />}
             />
         </Container>
     )

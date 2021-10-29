@@ -13,7 +13,7 @@ export const LightTheme = {
     colorSecondary: "#f5f5f5",
     colorTernary: "#007EF4",
     textColor: '#000000',
-    textSubColor: '#CCCCCC',
+    textSubColor: '#242424',
     onlineColor: '#0FDB66',
     incomingCallColor: "#0FDB66",
     outgoingCallColor: "#FF6969",
