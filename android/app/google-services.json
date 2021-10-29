@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "20527970609-q55vm0dpb2p7tv9uo4tq55gu3rov9lk9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chitchat",
+            "certificate_hash": "3f845641b6d9b0a4f4e50ddb4604446e80156972"
+          }
+        },
+        {
           "client_id": "20527970609-a3u7ggat8349h3dovq0akhmdm1a83v3s.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "20527970609-a3u7ggat8349h3dovq0akhmdm1a83v3s.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "20527970609-rjcg7867e3juc6ocgrau9u9ce54qgnf3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.ChitChat"
+              }
             }
           ]
         }
