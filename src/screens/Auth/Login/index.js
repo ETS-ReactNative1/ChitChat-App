@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Button, Image, Text, NativeModules } from 'react-native'
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 const { RNTwitterSignIn } = NativeModules;
 
@@ -59,7 +60,7 @@ const index = (props) => {
         onGoogleButtonPress()
             .then((res) => {
                 if (isValid(res)) {
-                    dispatch(setLoggedinUser(res?.user))
+                    saveUser(res)
                 }
             })
             .catch(error => console.log('err ', error))
@@ -70,10 +71,27 @@ const index = (props) => {
             .then((res) => {
                 console.log("onTwitterButtonPress = ", res);
                 if (isValid(res)) {
-                    dispatch(setLoggedinUser(res?.user))
+                    saveUser(res)
                 }
             })
             .catch(error => console.log('err ', error))
+    }
+
+    const saveUser = async (res) => {
+        await dispatch(setLoggedinUser(res?.user))
+        const { uid, displayName, email, metadata, phoneNumber } = res?.user;
+        try {
+            await firestore().collection('users').doc(uid).set({
+                uid,
+                displayName,
+                email,
+                metadata,
+                phoneNumber,
+                status: 'online'
+            })
+        } catch (error) {
+            console.log(error);
+        }
     }
 
 
