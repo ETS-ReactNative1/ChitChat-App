@@ -1,7 +1,8 @@
 import React from 'react'
-import { View, Button, Image, Text, TouchableOpacity } from 'react-native'
+import { View, Button, Image, Text, NativeModules } from 'react-native'
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+const { RNTwitterSignIn } = NativeModules;
 
 import Container from '../../../components/Container'
 import HOC from '../../../components/HOC'
@@ -10,10 +11,16 @@ import { isValid } from '../../../utils/validation';
 import Images from '../../../assets/images';
 import { SF_PRO_TEXT_SEMIBOLD } from '../../../styles/typography';
 import Socialbutton from './components/Socialbutton';
+import { webClientId, twitterApikey, twitterkeySecret } from '../../../config';
+
+RNTwitterSignIn.init(twitterApikey, twitterkeySecret).then(() =>
+    console.log('Twitter SDK initialized'),
+);
 
 GoogleSignin.configure({
-    webClientId: '20527970609-a3u7ggat8349h3dovq0akhmdm1a83v3s.apps.googleusercontent.com',
+    webClientId: webClientId,
 });
+
 const index = (props) => {
     const { theme, dispatch } = props
 
@@ -33,9 +40,35 @@ const index = (props) => {
         }
     }
 
+    async function onTwitterButtonPress() {
+        try {// Perform the login request
+            const { authToken, authTokenSecret } = await RNTwitterSignIn.logIn();
+
+            // Create a Twitter credential with the tokens
+            const twitterCredential = auth.TwitterAuthProvider.credential(authToken, authTokenSecret);
+
+            // Sign-in the user with the credential
+            return auth().signInWithCredential(twitterCredential);
+        }
+        catch (error) {
+            return error
+        }
+    }
+
     const onPressGoogle = () => {
         onGoogleButtonPress()
             .then((res) => {
+                if (isValid(res)) {
+                    dispatch(setLoggedinUser(res?.user))
+                }
+            })
+            .catch(error => console.log('err ', error))
+    }
+
+    const onPressTwitter = () => {
+        onTwitterButtonPress()
+            .then((res) => {
+                console.log("onTwitterButtonPress = ", res);
                 if (isValid(res)) {
                     dispatch(setLoggedinUser(res?.user))
                 }
@@ -74,7 +107,7 @@ const index = (props) => {
             <View style={{ flex: 1, marginHorizontal: 10, marginVertical: 15 }}>
                 <Socialbutton text="Login in with Google" source={Images.google} onPress={onPressGoogle} />
                 <Socialbutton text="Login in with Facebook" source={Images.facebook} onPress={onPressGoogle} />
-                <Socialbutton text="Login in with Twitter" source={Images.twitter} onPress={onPressGoogle} />
+                <Socialbutton text="Login in with Twitter" source={Images.twitter} onPress={onPressTwitter} />
             </View>
         </Container>
     )

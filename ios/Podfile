@@ -11,8 +11,13 @@ target 'ChitChat' do
     # to enable hermes on iOS, change `false` to `true` and then install pods
     :hermes_enabled => false
   )
+   
+  # use_frameworks!
+  pod 'TwitterKit', '~> 3.3.0'
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  pod 'react-native-twitter-signin', :path => '../node_modules/react-native-twitter-signin'
 
   target 'ChitChatTests' do
     inherit! :complete
