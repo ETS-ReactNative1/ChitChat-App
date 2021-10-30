@@ -100,14 +100,14 @@ const index = (props) => {
                     lineHeight: 28,
                     color: theme?.textColor
                 }}>
-                    A new approach to chat with around you.
+                    A new approach to chat with people around you.
             </Text>
             </View>
 
             <View style={{ flex: 1, marginHorizontal: 10, marginVertical: 15 }}>
-                <Socialbutton text="Login in with Google" source={Images.google} onPress={onPressGoogle} />
-                <Socialbutton text="Login in with Facebook" source={Images.facebook} onPress={onPressGoogle} />
-                <Socialbutton text="Login in with Twitter" source={Images.twitter} onPress={onPressTwitter} />
+                <Socialbutton text="Log in with Google" source={Images.google} onPress={onPressGoogle} />
+                <Socialbutton text="Log in with Facebook" source={Images.facebook} onPress={onPressGoogle} />
+                <Socialbutton text="Log in with Twitter" source={Images.twitter} onPress={onPressTwitter} />
             </View>
         </Container>
     )
