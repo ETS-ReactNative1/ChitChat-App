@@ -2,9 +2,9 @@ import React from 'react'
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Icon from 'react-native-vector-icons/Feather'
+import auth from '@react-native-firebase/auth';
 
 import HOC from '../../../components/HOC'
-import AppHeader from '../../../components/AppHeader/index'
 import { setAppTheme } from '../../../store/actions/theme'
 import { THEME } from '../../../constants/styles'
 import { setTheme } from '../../../services/async_storage'
@@ -12,14 +12,21 @@ import { useSelector } from 'react-redux'
 import Container from '../../../components/Container'
 import Images from '../../../assets/images'
 import { SF_PRO_TEXT_SEMIBOLD, SF_PRO_TEXT_MEDIUM, SF_PRO_TEXT_REGULAR } from '../../../styles/typography'
+import { setLoggedinUser } from '../../../store/actions/auth';
 
 const index = ({ dispatch, theme, navigation }) => {
     const currentTheme = useSelector(state => state.theme.appTheme)
+    const loggedInUser = useSelector(state => state.auth.user)
 
     const onChangeThemePress = () => {
         const getCurrentTheme = currentTheme == THEME.dark ? THEME.light : THEME.dark
         dispatch(setAppTheme(getCurrentTheme))
         setTheme(getCurrentTheme)
+    }
+
+    const onLogoutPress = async () => {
+        await auth().signOut()
+        dispatch(setLoggedinUser(null))
     }
 
     const Row = ({ iconname, text, onpress }) => {
@@ -43,8 +50,8 @@ const index = ({ dispatch, theme, navigation }) => {
                     blurRadius={2}
                 />
                 <View style={styles.section1}>
-                    <Text style={styles.username}>Vaishnav ambre</Text>
-                    <Text style={styles.email}>vaishnavambre31@gmail.com</Text>
+                    <Text style={styles.username}>{loggedInUser?.displayName}</Text>
+                    <Text style={styles.email}>{loggedInUser?.email}</Text>
                 </View>
                 <Ionicons
                     onPress={() => navigation?.goBack()}
@@ -59,7 +66,7 @@ const index = ({ dispatch, theme, navigation }) => {
                 <Row iconname="bell" text="Notifications" />
                 <Row iconname="star" text="Saved" />
                 <Row iconname="sun" text={`Theme (${currentTheme?.toLowerCase()})`} onpress={onChangeThemePress} />
-                <Row iconname="power" text="Logout" />
+                <Row iconname="power" text="Logout" onpress={onLogoutPress} />
             </View>
         </Container>
     )
