@@ -17,6 +17,12 @@ import { setLoggedinUser } from '../../../store/actions/auth';
 const index = ({ dispatch, theme, navigation }) => {
     const currentTheme = useSelector(state => state.theme.appTheme)
     const loggedInUser = useSelector(state => state.auth.user)
+    const provider = loggedInUser?.providerData[0]?.providerId;
+    const imgSrc = provider === 'google.com'
+        ? Images.google
+        : provider === 'twitter.com'
+            ? Images.twitter
+            : Images.facebook
 
     const onChangeThemePress = () => {
         const getCurrentTheme = currentTheme == THEME.dark ? THEME.light : THEME.dark
@@ -59,6 +65,7 @@ const index = ({ dispatch, theme, navigation }) => {
                     style={styles.backarrow}
                 />
             </View>
+
             <View
                 style={styles.itemcontainer}
             >
@@ -67,6 +74,27 @@ const index = ({ dispatch, theme, navigation }) => {
                 <Row iconname="star" text="Saved" />
                 <Row iconname="sun" text={`Theme (${currentTheme?.toLowerCase()})`} onpress={onChangeThemePress} />
                 <Row iconname="power" text="Logout" onpress={onLogoutPress} />
+            </View>
+
+            <View
+                style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginVertical: 10,
+                }}
+            >
+                <Text style={{ fontSize: 18, color: theme?.textColor, fontFamily: SF_PRO_TEXT_REGULAR }}>Logged in using</Text>
+                <Image
+                    source={imgSrc}
+                    style={{
+                        height: 25,
+                        width: 25,
+                        borderRadius: 25,
+                        marginHorizontal: 10,
+                        resizeMode: 'contain',
+                    }}
+                />
             </View>
         </Container>
     )
@@ -96,7 +124,7 @@ const styles = StyleSheet.create({
         fontSize: 26,
         color: '#FFF'
     },
-    itemcontainer: { marginHorizontal: 20, marginVertical: 10 },
+    itemcontainer: { marginHorizontal: 20, marginVertical: 10, flexGrow: 1, },
     imageStyle: {
         height: 250,
         width: '100%',
