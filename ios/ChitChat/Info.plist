@@ -25,7 +25,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb461189671991945</string>
+				<string>fbAPP-ID</string>
 			</array>
 		</dict>
 		<dict>
@@ -33,7 +33,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>twitterkit-zadf8K2CBoBklDwGgyQFdngZ5</string>
+				<string>twitterkit-<consumerKey></string>
 			</array>
 		</dict>
 		<dict>
@@ -41,16 +41,16 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.20527970609-rjcg7867e3juc6ocgrau9u9ce54qgnf3</string>
+				<string>YOUR_REVERSED_CLIENT_ID</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>461189671991945</string>
+	<string>APP-ID</string>
 	<key>FacebookClientToken</key>
-	<string>2ca49d975dd172ecf6469fb446dbd295</string>
+	<string>CLIENT-TOKEN</string>
 	<key>FacebookDisplayName</key>
 	<string>Chit-Chat</string>
 	<key>LSApplicationQueriesSchemes</key>

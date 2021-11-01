@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">ChitChat</string>
-    <string name="facebook_app_id">461189671991945</string>
-    <string name="facebook_client_token">2ca49d975dd172ecf6469fb446dbd295</string>
+    <string name="facebook_app_id">your_facebook_app_id</string>
+    <string name="facebook_client_token">your_facebook_client_token</string>
 </resources>
