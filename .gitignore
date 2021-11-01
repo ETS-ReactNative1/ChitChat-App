@@ -61,3 +61,5 @@ buck-out/
 google-services.json
 GoogleService-Info.plist
 src/config/index.js
+android/app/src/main/res/values/strings.xml
+ios/ChitChat/Info.plist
