@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Button, Image, Text, NativeModules } from 'react-native'
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 const { RNTwitterSignIn } = NativeModules;
 
@@ -56,6 +57,32 @@ const index = (props) => {
         }
     }
 
+    async function onFacebookButtonPress() {
+        try {
+            // Attempt login with permissions
+            const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+
+            if (result.isCancelled) {
+                throw 'User cancelled the login process';
+            }
+
+            // Once signed in, get the users AccesToken
+            const data = await AccessToken.getCurrentAccessToken();
+
+            if (!data) {
+                throw 'Something went wrong obtaining access token';
+            }
+
+            // Create a Firebase credential with the AccessToken
+            const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
+
+            // Sign-in the user with the credential
+            return auth().signInWithCredential(facebookCredential);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     const onPressGoogle = () => {
         onGoogleButtonPress()
             .then((res) => {
@@ -77,20 +104,35 @@ const index = (props) => {
             .catch(error => console.log('err ', error))
     }
 
-    const saveUser = async (res) => {
-        await dispatch(setLoggedinUser(res?.user))
-        const { uid, displayName, email, metadata, phoneNumber } = res?.user;
-        try {
-            await firestore().collection('users').doc(uid).set({
-                uid,
-                displayName,
-                email,
-                metadata,
-                phoneNumber,
-                status: 'online'
+    const onPressFacebook = () => {
+        onFacebookButtonPress()
+            .then((res) => {
+                console.log("onFacebookButtonPress = ", res);
+                if (isValid(res)) {
+                    saveUser(res)
+                }
             })
-        } catch (error) {
-            console.log(error);
+            .catch(error => console.log('err ', error))
+    }
+
+    const saveUser = async (res) => {
+        if (isValid(res?.user)) {
+            await dispatch(setLoggedinUser(res?.user))
+            const { uid, displayName, email, metadata, phoneNumber, photoURL, providerData } = res?.user;
+            try {
+                await firestore().collection('users').doc(uid).set({
+                    uid,
+                    displayName,
+                    email,
+                    metadata,
+                    phoneNumber,
+                    photoURL,
+                    providerId: providerData[0]?.providerId,
+                    status: 'online'
+                })
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
@@ -124,7 +166,7 @@ const index = (props) => {
 
             <View style={{ flex: 1, marginHorizontal: 10, marginVertical: 15 }}>
                 <Socialbutton text="Log in with Google" source={Images.google} onPress={onPressGoogle} />
-                <Socialbutton text="Log in with Facebook" source={Images.facebook} onPress={onPressGoogle} />
+                <Socialbutton text="Log in with Facebook" source={Images.facebook} onPress={onPressFacebook} />
                 <Socialbutton text="Log in with Twitter" source={Images.twitter} onPress={onPressTwitter} />
             </View>
         </Container>

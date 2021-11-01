@@ -8,12 +8,19 @@ import { useRoute, useNavigation } from '@react-navigation/native'
 import { routeNames, ROUTE_NAME } from '../../constants/route'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import Images from '../../assets/images'
+import { useSelector } from 'react-redux'
+import { isValid } from '../../utils/validation'
 
 const index = (props) => {
     const { theme, route } = props
     const { name: routeName, params } = useRoute()
     const navigation = useNavigation()
-    // console.log(params);
+
+    const user = useSelector(state => state.auth.user)
+
+    const photoURL = isValid(user)
+        ? { uri: user?.photoURL }
+        : Images.profile_image
 
     const appHeaderLeft = () => {
         return routeName === ROUTE_NAME.CHAT_ROOM
@@ -28,7 +35,7 @@ const index = (props) => {
                     onPress={() => navigation.navigate('Profile')}
                 >
                     <Image
-                        source={Images.profile_image}
+                        source={photoURL}
                         style={{
                             height: 35,
                             width: 35,
